@@ -1,6 +1,8 @@
 import React from 'react'
+import BmiForm from './BmiForm'
 
 const BmiCalculator = () => {
+    const onChangeInput = () => {}
     return (
         <>
             <div className="container">
@@ -10,22 +12,20 @@ const BmiCalculator = () => {
                             BMI Calculator
                         </div>
                         <div className="card-body">
-                            <div className="row mb-2">
-                                <div className="col-6">
-                                <label className="">Height (cm)</label>
-                                </div>
-                                <div className="col-6">
-                                    <input type="number" className="form-control form-control-sm" />
-                                </div>
-                            </div>
-                            <div className="row mb-2">
-                                <div className="col">
-                                <label className="">Weight (kg)</label>
-                                </div>
-                                <div className="col">
-                                    <input type="number" className="form-control form-control-sm" />
-                                </div>
-                            </div>
+                            <BmiForm 
+                                title={`Height (cm)`}
+                                type='number'
+                                name='heightCount'
+                                value=""
+                                onChange={onChangeInput} 
+                                />
+                            <BmiForm 
+                                title={`Weight (kg)`}
+                                type='number'
+                                name='weightCount'
+                                value=""
+                                onChange={onChangeInput} 
+                                />
                             <button className="btn btn-sm btn-primary">Reset</button>
                         </div>
                         <div className="card-footer bg-primary text-white">
