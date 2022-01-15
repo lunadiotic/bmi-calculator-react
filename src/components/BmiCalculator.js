@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BmiForm from './BmiForm'
 
 const BmiCalculator = () => {
-    const onChangeInput = () => {}
+    const [count, setCount] = useState({
+        heightCount: '0',
+        weightCount: '0'
+    })
+
+    const { heightCount, weightCount } = count // destruct object count state
+
+    const onChangeInput = (e) => {
+        // if (e.target.name === 'heightCount') {
+        //     setCount({
+        //         heightCount: e.target.value
+        //     })
+        // }
+
+        const { name, value } = e.target;
+        setCount(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    }
     return (
         <>
             <div className="container">
@@ -16,14 +35,14 @@ const BmiCalculator = () => {
                                 title={`Height (cm)`}
                                 type='number'
                                 name='heightCount'
-                                value=""
+                                value={heightCount}
                                 onChange={onChangeInput} 
                                 />
                             <BmiForm 
                                 title={`Weight (kg)`}
                                 type='number'
                                 name='weightCount'
-                                value=""
+                                value={weightCount}
                                 onChange={onChangeInput} 
                                 />
                             <button className="btn btn-sm btn-primary">Reset</button>
