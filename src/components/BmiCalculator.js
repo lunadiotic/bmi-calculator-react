@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BmiForm from './BmiForm'
 
 const BmiCalculator = () => {
@@ -30,6 +30,18 @@ const BmiCalculator = () => {
             weightCount: '0'
         })
     }
+
+    const metricBmi = (height, weight) => {
+        if(height > 0 && weight > 0) {
+            const bmi = (weight / height / height) * 10000
+            console.log(bmi)
+        }
+    }
+
+    useEffect(() => {
+        // metricBmi(123, 123)
+        metricBmi(heightCount, weightCount)
+    }, [heightCount, weightCount]) //useEffect akan bekerja setiap ada perubahan nilai selain pertama kali dimuat
 
     return (
         <>
