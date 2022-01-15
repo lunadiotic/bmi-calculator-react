@@ -22,6 +22,15 @@ const BmiCalculator = () => {
             [name]: value
         }));
     }
+
+    const resetForm = (e) => {
+        e.preventDefault()
+        setCount({
+            heightCount: '0',
+            weightCount: '0'
+        })
+    }
+
     return (
         <>
             <div className="container">
@@ -45,7 +54,9 @@ const BmiCalculator = () => {
                                 value={weightCount}
                                 onChange={onChangeInput} 
                                 />
-                            <button className="btn btn-sm btn-primary">Reset</button>
+                            <button
+                                onClick={resetForm} 
+                                className="btn btn-sm btn-primary">Reset</button>
                         </div>
                         <div className="card-footer bg-primary text-white">
                             -
